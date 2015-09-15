@@ -1,0 +1,67 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <title>BGMOL</title>    
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="bgmolStyle.css">
+</head>
+<body>
+    <header id="header">
+    <div><img src="logo.jpg" alt="BGMOL logo" id="logo"></div>
+    <div id="menu">
+      <table>
+        <th class="menuItem">home</th>
+        <th class="menuItem">gallery</th>
+      </table>
+    </div>
+    </header>
+  <body>
+    <center>
+      <article>
+        <h2>About us</h2>
+        <span>Ние се занимаваме с изработка на щампован бетон, който е чудесен начин вашето дворно пространство да придобие красива визия, изцяло съобразена с вашия личен вкус. Ако сте се изморили от постоянно изникващата трева, от разместването на плочките в двора си, от заледяването през зимата или от всички неравности, през които преминавате в опити да паркирате колата си, то ние имаме решение за вас. Щампованият бетон се изработва по специална технология, предпазваща от заледяване и пързаляне, а поради фактът, че това е изцяло свързана конструкция вече няма да имате проблеми с разместване, потъване, кал или трева.﻿</span>
+      </article>
+      <h2>Gallery</h2>
+      <div id="container"></div>
+      <div id="screen-dimer"></div>
+    </center>
+    <script id="article-template" type="text/x-handlebars-template">
+        <div id="gallery">
+          <div id="gallery-list">
+            {{#images}}
+            <div class="image-container">
+              <img src="{{source}}" data-info="{{dataInfo}}" />
+            </div>
+            {{/images}}
+          </div>
+          <div id="selected">
+            <div class="previous-image">
+              <img src="Pictures/1.jpg" id="previous-image" />
+            </div>
+            <div class="current-image">
+              <img src="Pictures/2.jpg" id="current-image" />
+            </div>
+            <div class="next-image">
+              <img src="Pictures/3.jpg" id="next-image" />
+            </div>
+          </div> 
+        </div>    
+    </script>
+
+  </body>
+    <footer id="footer">
+    <ul id="ul">    
+      <li><span class="info">Contact information:</span></li>
+      <li><span class="info">Mobile:</span><span> +359 898749145, 895697033</span></li>
+      <li><span class="info">Email:</span><span> mimi.grozeva@abv.bg</span></li>
+      <li><span class="info">Adress:</span><span> Sofia, Trebich, Michael Marinov str.</span></li>
+    </ul>
+    </footer>
+
+  <script src="scripts/handlebars-v4.0.0.js"></script>
+  <script src="scripts/MainScript.js"></script>
+  <script>
+    gallery(4);
+  </script>
+</body> 
+</html>
