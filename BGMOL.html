@@ -9,44 +9,16 @@
     <header id="header">
     <div><img src="logo.jpg" alt="BGMOL logo" id="logo"></div>
     <div id="menu">
-      <table>
-        <th class="menuItem">home</th>
-        <th class="menuItem">gallery</th>
-      </table>
+      <a class="menuItem" href="#/home">Home</a>
+      <a class="menuItem" href="#/gallery">Gallery</a>
     </div>
     </header>
   <body>
-    <center>
-      <article>
-        <h2>About us</h2>
-        <span>Ние се занимаваме с изработка на щампован бетон, който е чудесен начин вашето дворно пространство да придобие красива визия, изцяло съобразена с вашия личен вкус. Ако сте се изморили от постоянно изникващата трева, от разместването на плочките в двора си, от заледяването през зимата или от всички неравности, през които преминавате в опити да паркирате колата си, то ние имаме решение за вас. Щампованият бетон се изработва по специална технология, предпазваща от заледяване и пързаляне, а поради фактът, че това е изцяло свързана конструкция вече няма да имате проблеми с разместване, потъване, кал или трева.﻿</span>
-      </article>
-      <h2>Gallery</h2>
+    <center>      
       <div id="container"></div>
-      <div id="screen-dimer"></div>
     </center>
-    <script id="article-template" type="text/x-handlebars-template">
-        <div id="gallery">
-          <div id="gallery-list">
-            {{#images}}
-            <div class="image-container">
-              <img src="{{source}}" data-info="{{dataInfo}}" />
-            </div>
-            {{/images}}
-          </div>
-          <div id="selected">
-            <div class="previous-image">
-              <img src="Pictures/1.jpg" id="previous-image" />
-            </div>
-            <div class="current-image">
-              <img src="Pictures/2.jpg" id="current-image" />
-            </div>
-            <div class="next-image">
-              <img src="Pictures/3.jpg" id="next-image" />
-            </div>
-          </div> 
-        </div>    
-    </script>
+
+    <!--<script id="article-template" type="text/x-handlebars-template"></script>-->
 
   </body>
     <footer id="footer">
@@ -57,11 +29,12 @@
       <li><span class="info">Adress:</span><span> Sofia, Trebich, Michael Marinov str.</span></li>
     </ul>
     </footer>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
+  <script src="Scripts/sammy/lib/sammy.js"></script>
   <script src="scripts/handlebars-v4.0.0.js"></script>
-  <script src="scripts/MainScript.js"></script>
-  <script>
-    gallery(4);
-  </script>
+  <script src="scripts/GalleryScript.js"></script>
+  <script src="scripts/data.js"></script>
+  <script src="scripts/app.js"></script>
+  <!--<script src="scripts/templates.js"></script>-->
 </body> 
 </html>
