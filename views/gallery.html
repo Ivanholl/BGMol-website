@@ -1,0 +1,23 @@
+<div ng-controller="GalleryController">
+  <h1>Gallery</h1>
+  <div id="gallery">
+    <div id="gallery-list">
+      <div class="image-container" ng-repeat="image in images">
+        <img src="{{image.source}}" data-info="{{image.dataInfo}}"/>
+      </div>
+      <div ng-init="fireEvent()"></div>
+    </div>
+    <div id="selected">
+      <div class="previous-image">
+        <img src="" id="previous-image" />
+      </div>
+      <div class="current-image">
+        <img src="" id="current-image" />
+      </div>
+      <div class="next-image">
+        <img src="" id="next-image" />
+      </div>
+    </div>
+  </div>
+  <div id="screen-dimer"></div>
+</div>

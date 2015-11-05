@@ -1,15 +1,12 @@
-function gallery(cols){
-    var columns = cols || 3,
-        imgCount = post.images.length,
+function gallery(images){
+    var imgCount = images.length,
         screenDimer = document.getElementById('screen-dimer'),
-        imgList = document.getElementsByClassName('image-container'),
+        imgList = $("body").on("click", ".image-container", listOnClick),
 
         selected = document.getElementById('selected'),
         currentImage = document.getElementById('current-image'),
         prevImage = document.getElementById('previous-image'),
-        nextImage = document.getElementById('next-image');
-
-
+        nextImage = document.getElementById('next-image');    
 
     function showHideSelected(args){       
         if (args === true) {
@@ -22,11 +19,6 @@ function gallery(cols){
 
     showHideSelected(true); 
 
-    for (var i = 0; i < imgCount; i+= 1) {
-        if (i % columns === 0) {
-            imgList[i].classList.add('clearfix');
-        }
-    }
 
     function listOnClick(event){
         var target = event.target,
@@ -47,22 +39,20 @@ function gallery(cols){
     function prevOnClick(event){
         var target = event.target,
             currentImgDataInfo = target.getAttribute("data-info") | 0;
+
         switchImages(currentImgDataInfo)
     }
 
     function nextOnClick(event){
         var target = event.target,
             currentImgDataInfo = target.getAttribute("data-info") | 0;
+
         switchImages(currentImgDataInfo)            
     }
 
     prevImage.addEventListener("click", prevOnClick, false);
     nextImage.addEventListener("click", nextOnClick, false);
     currentImage.addEventListener("click", selectedOnClick, false);
-
-    for (i = 0; i < imgList.length; i++) {
-        imgList[i].addEventListener("click", listOnClick, false);
-    }
 
     function switchImages(currentImgDataInfo){
         var srcForCurrent,
@@ -72,21 +62,21 @@ function gallery(cols){
             nextDataInfo = getNextImageDataInfo(currentImgDataInfo) | 0;
 
 
-        for (var i = 0; i < post.images.length; i++) {
-            if (post.images[i].dataInfo == currentImgDataInfo) {
-                srcForCurrent = post.images[i].source;
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].dataInfo == currentImgDataInfo) {
+                srcForCurrent = images[i].source;
 
                 if (i === 0) {
-                    srcForPrev = post.images[post.images.length-1].source;
-                    srcForNext = post.images[i+1].source
+                    srcForPrev = images[images.length-1].source;
+                    srcForNext = images[i+1].source
                 }
-                else if (i === post.images.length-1) {
-                    srcForPrev = post.images[i-1].source;
-                    srcForNext = post.images[0].source
+                else if (i === images.length-1) {
+                    srcForPrev = images[i-1].source;
+                    srcForNext = images[0].source
                 }
                 else { 
-                    srcForPrev = post.images[i-1].source;
-                    srcForNext = post.images[i+1].source
+                    srcForPrev = images[i-1].source;
+                    srcForNext = images[i+1].source
                } 
                 break;
             } 
@@ -104,17 +94,16 @@ function gallery(cols){
     function getPrevImageDataInfo(current) {
         var prev = current - 1;
         if (prev <= 0) {
-            prev = imgList.length;
+            prev = imgCount;
         }
         return prev;
     }
  
     function getNextImageDataInfo(current) {
-        var cur = current | 0
-            next = cur + 1;
-        if (next > imgList.length) {
+        var next = current + 1;
+        if (next > imgCount) {
             next = 1;
         }
         return next;
     } 
-} 
+}
